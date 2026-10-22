@@ -1,0 +1,42 @@
+name: "Problem Report (PR)"
+description: "Report a software defect or anomaly prior to formal Change Request creation"
+title: "[PR]: "
+labels: ["problem-report", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## SCM Problem Report (IEEE 828)
+        Use this form to document an observed defect, failure, or discrepancy in a baseline Configuration Item. If verified, this PR may trigger an official Change Request (CR).
+  - type: input
+    id: affected_ci
+    attributes:
+      label: "Affected Configuration Item"
+      placeholder: "e.g. Source Code - CCB Approval Module (CI-005)"
+    validations:
+      required: true
+  - type: textarea
+    id: symptom
+    attributes:
+      label: "Observed Behavior / Defect Symptom"
+      placeholder: "Describe the unexpected behavior encountered..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected Behavior"
+      placeholder: "Describe what should have occurred per specification..."
+    validations:
+      required: true
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Defect Severity"
+      options:
+        - "Cosmetic"
+        - "Minor"
+        - "Major"
+        - "Critical / Blocker"
+    validations:
+      required: true

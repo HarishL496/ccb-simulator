@@ -1,0 +1,61 @@
+name: "Change Request (CR)"
+description: "Submit a formal Change Request for CCB deliberation and approval"
+title: "[CR]: "
+labels: ["change-request", "needs-ccb-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Configuration Control Board (CCB) Change Request
+        All software modifications to Configuration Items under baseline control must be submitted through this formal CR template in accordance with IEEE 828.
+  - type: input
+    id: ci_id
+    attributes:
+      label: "Target Configuration Item (CI-ID)"
+      description: "Identifier of the affected CI (e.g., CI-001, CI-003, CI-006)"
+      placeholder: "CI-003"
+    validations:
+      required: true
+  - type: dropdown
+    id: classification
+    attributes:
+      label: "CCB Classification"
+      description: "Determines the required approval policy and turnaround SLA"
+      options:
+        - "Minor (v1.0 -> v1.1, 1-member approval, <24h)"
+        - "Major (v1.0 -> v2.0, 3-step technical+quality+chair review, <48h)"
+        - "Emergency (Immediate chairperson decision, <4h)"
+    validations:
+      required: true
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Urgency / Priority"
+      options:
+        - "Low"
+        - "Medium"
+        - "High"
+        - "Critical"
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: "Detailed Description of Proposed Change"
+      placeholder: "Technical specification of the code, schema, or document modification..."
+    validations:
+      required: true
+  - type: textarea
+    id: justification
+    attributes:
+      label: "Justification & Business Need"
+      placeholder: "Why is this change necessary? What problem does it resolve?"
+    validations:
+      required: true
+  - type: textarea
+    id: impact_analysis
+    attributes:
+      label: "Impact Analysis & Regression Risk"
+      placeholder: "Dependencies on other CIs, testing requirements, backward compatibility..."
+    validations:
+      required: false
