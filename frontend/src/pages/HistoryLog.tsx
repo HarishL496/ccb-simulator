@@ -18,7 +18,7 @@ export const HistoryLog: React.FC = () => {
 
       const res = await api.getHistory(params);
       if (res.success && res.data) {
-        setEvents(res.data);
+        setEvents(res.data.items || (Array.isArray(res.data) ? res.data : []));
       }
     } catch (err) {
       console.error(err);

@@ -47,11 +47,14 @@ export const ChangeRequests: React.FC = () => {
       if (classFilter) params.classification = classFilter;
 
       const [crRes, ciRes] = await Promise.all([api.getCRs(params), api.getCIs()]);
-      if (crRes.success && crRes.data) setCrs(crRes.data);
+      if (crRes.success && crRes.data) {
+        setCrs(crRes.data.items || (Array.isArray(crRes.data) ? crRes.data : []));
+      }
       if (ciRes.success && ciRes.data) {
-        setCis(ciRes.data);
-        if (!formCiId && ciRes.data.length > 0) {
-          setFormCiId(ciRes.data[0].id);
+        const ciList = ciRes.data.items || (Array.isArray(ciRes.data) ? ciRes.data : []);
+        setCis(ciList);
+        if (!formCiId && ciList.length > 0) {
+          setFormCiId(ciList[0].id);
         }
       }
     } catch (err: any) {

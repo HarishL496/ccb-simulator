@@ -56,7 +56,7 @@ export const CIRegistry: React.FC = () => {
 
       const res = await api.getCIs(params);
       if (res.success && res.data) {
-        setItems(res.data);
+        setItems(res.data.items || (Array.isArray(res.data) ? res.data : []));
       }
     } catch (err: any) {
       setError(err.message);

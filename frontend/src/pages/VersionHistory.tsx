@@ -16,9 +16,10 @@ export const VersionHistory: React.FC = () => {
         setLoading(true);
         const res = await api.getCIs();
         if (res.success && res.data) {
-          setCis(res.data);
-          if (res.data.length > 0) {
-            setSelectedCiId(res.data[0].id);
+          const list = res.data.items || (Array.isArray(res.data) ? res.data : []);
+          setCis(list);
+          if (list.length > 0) {
+            setSelectedCiId(list[0].id);
           }
         }
       } catch (err) {
