@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
+import path from 'path';
 
 import { initDb } from './db/database';
 import { errorHandler, notFound } from './middleware/errorHandler';
@@ -50,6 +51,18 @@ app.use('/api/dashboard', dashboardRoutes);
 // Health check
 app.get('/api/health', (_, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString(), service: 'CCB Control Center API' });
+});
+
+// Serve frontend build static assets
+const frontendDist = path.resolve(__dirname, '../../frontend/dist');
+app.use(express.static(frontendDist));
+
+// Serve index.html for SPA routes
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+  res.sendFile(path.join(frontendDist, 'index.html'));
 });
 
 // Error handlers

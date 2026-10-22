@@ -25,7 +25,7 @@ This directory provides the verification artifacts and documentation for the nin
 | `15-github-actions.png` | GitHub SCM Functionality 7 | Automated CI workflow run passing all tests and builds |
 | `16-github-branch-protection.png`| GitHub SCM Functionality 8 | Protected `main` branch rules, required reviews and status checks |
 | `17-github-access.png` | GitHub SCM Functionality 1 | Collaborator permissions and access control |
-| `18-deployed-website.png` | SCM Deployment | Live running web application demonstration |
+| `18-deployed-website.png` | SCM Deployment | Live deployed URL: https://automotive-near-petersburg-contributions.trycloudflare.com |
 | `19-live-demo-flow.png` | End-to-End Demo Flow | CR submission → CCB multi-step review → atomic version bump |
 | `20-audit-report.png` | SCM Audit Release | Final FCA/PCA audit report printout |
 

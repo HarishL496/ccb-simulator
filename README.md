@@ -5,6 +5,7 @@
 **Project Title:** Change Request Approval Board (CCB) Simulator with Configuration Item Registry  
 **Author / GitHub:** [HarishL496](https://github.com/HarishL496)  
 **Target Repository:** [https://github.com/HarishL496/ccb-simulator](https://github.com/HarishL496/ccb-simulator)  
+**Public Live Deployment:** [https://automotive-near-petersburg-contributions.trycloudflare.com](https://automotive-near-petersburg-contributions.trycloudflare.com)  
 **Standard Compliance:** IEEE 828 SCM Standard & SWEBOK Configuration Management Knowledge Area  
 
 ---
