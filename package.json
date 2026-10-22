@@ -1,0 +1,14 @@
+{
+  "name": "ccb-simulator",
+  "version": "1.0.0",
+  "description": "Change Request Approval Board (CCB) Simulator with Configuration Item Registry",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build && cd ../backend && npm install && npm run build && npm run seed",
+    "start": "cd backend && npm start",
+    "test": "cd backend && npm test"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
